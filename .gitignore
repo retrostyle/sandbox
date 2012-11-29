@@ -1,0 +1,9 @@
+##Add standard ignored files###
+###############################
+
+.project
+.classpath
+.settings/*
+bin/*
+build/*
+
