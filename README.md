@@ -7,11 +7,11 @@ A clean Java / Maven / JDBC / SQL / REST Project for rapidly testing some cool s
 Getting started
 =======
 
-Deploy on Glassfish and now you can run the Servlet under:
-http://localhost:8080/sandbox/Servlet
+<p>Deploy on Glassfish and now you can run the Servlet under:
+- http://localhost:8080/sandbox/Servlet</p>
 
-or the JSP file under:
-http://localhost:8080/sandbox/
+<p>or the JSP file under:
+http://localhost:8080/sandbox/</p>
 
 
 Requirements
