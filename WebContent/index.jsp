@@ -3,11 +3,18 @@
     	               "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-  <head>
-    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    	<title>GlassFish JSP Page</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-  </body>
-</html> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GlassFish JSP Page</title>
+</head>
+<body>
+	<%
+		java.text.DateFormat df = new java.text.SimpleDateFormat("dd/MM/yyyy");
+	%>
+
+	<h1>
+		Current Date:
+		<%=df.format(new java.util.Date())%>
+	</h1>
+</body>
+</html>
