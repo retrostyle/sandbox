@@ -3,16 +3,37 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.devch.sandbox</groupId>
   <artifactId>Sandbox</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <version>0.1-SNAPSHOT</version>
   <name>Sandbox</name>
   <url>http://www.devch.de</url>
-	<dependencies>
+  <build>
+       <plugins>
+           <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-war-plugin</artifactId>
+               <configuration>
+                   <webXml>WebContent\WEB-INF\web.xml</webXml>
+               </configuration>
+           </plugin>
+       </plugins>
+  </build>
+  <dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.10.0</version>
+			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+	    <dependency>
+	        <groupId>javax.servlet.jsp</groupId>
+	        <artifactId>jsp-api</artifactId>
+	        <version>2.0</version>
+        </dependency>
+  </dependencies>	
 </project>

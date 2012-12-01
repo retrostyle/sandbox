@@ -16,6 +16,10 @@ or the JSP file under:
 - http://localhost:8080/sandbox/
 
 
+Ceate deployable .war  wtih 
+- mvn clean packge
+
+now the app is accacessable in g
 Requirements
 =======
 
