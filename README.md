@@ -6,30 +6,30 @@ A clean Java / Maven / JDBC / SQL / REST Project for rapidly testing some cool s
 ##Getting started
 
 Deploy on Glassfish and now you can run the Servlet under:
-* http://localhost:8080/sandbox/Servlet
+	_http://localhost:8080/sandbox/Servlet_
 
 or the JSP file under:
-* http://localhost:8080/sandbox/
+	_http://localhost:8080/sandbox/_
 
 
 Create deployable .war  wtih 
-* mvn clean package
+	_mvn clean package_
 
 now you can move the file under /target to your autodeploy folder.
 
 
 ##Handle with Artifacts (Archiva & Maven)
 
-* It is required to have archiva installed on your pc @ /localhost:8080
+It is required to have archiva installed on your pc @ /localhost:8080
 
-* Be sure you have no Application Server still running
+Be sure you have no Application Server still running
 
-* Copy the settings.xml under _settings folder to your
-	* _Maven install: $M2_HOME/conf/settings.xml_
-	* _user's install: ${user.home}/.m2/settings.xml_
+Copy the settings.xml under _settings folder to your
+	_Maven install: $M2_HOME/conf/settings.xml_
+	_user's install: ${user.home}/.m2/settings.xml_
 
-* Go into the sandbox directory and run on command line
-	* _mvn clean package deploy_
+Go into the sandbox directory and run on command line
+	_mvn clean package deploy_
 
 5. With the Ant
 
