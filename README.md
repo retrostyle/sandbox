@@ -7,18 +7,18 @@ A clean Java / Maven / Gradle / No- My- SQL / REST Project for rapidly testing s
 
 Create deployable .war  wtih 
 
-Maven = `mvn clean package`<br>
-Gradle = `gradle clean war`
+- Maven = `mvn clean install`<br>
+- Gradle = `gradle clean war`
 
 copy the generated .war in /target or /build to your autodeploy directory to your running Application Server.
 
 Now you can run the Servlet under:
 
-`http://localhost:8080/sandbox/Servlet`
+- `http://localhost:8080/sandbox/Servlet`
 
 or the JSP file under:
 
-`http://localhost:8080/sandbox/`
+- `http://localhost:8080/sandbox/`
 
 that's it.
 
@@ -26,20 +26,18 @@ that's it.
 
 ###Artifact handling with Archiva
 
-It is required to have archiva installed on your pc @ /localhost:8080
+It is required to have archiva installed on your pc standard is /localhost:8080
 
-Be sure you have no Application Server still running
+Be sure you have no Application Server running or you get the error port is in use.
 
 Copy the settings.xml under _settings folder to your
-	_Maven install: $M2_HOME/conf/settings.xml_
-	_user's install: ${user.home}/.m2/settings.xml_
+
+- Maven install: `$MAVEN2_HOME/conf/settings.xml`
+- User's install: `${user.home}/.m2/settings.xml`
 
 Go into the sandbox directory and run on command line
-	_mvn clean package deploy_
 
-5. With the Ant
-
-
+- `mvn clean install deploy`
 
 ###How to use cobertura code coverage
 
@@ -53,7 +51,11 @@ To work with Cobertura CodeCoverage use one of these maven goals.
 
 Example:
 
-`mvn clean package cobertura:cobertura`
+- `mvn clean install cobertura:cobertura`
+
+The reports can be find under 
+
+- `target/site/cobertura/index.html`
 
 
 ##Requirements
@@ -66,7 +68,6 @@ Insalled Maven 3.0.3
 
 - Add MySQL
 - Add NoSQL
-- Add Maven
 - Add Gradle
 - Add REST
 - Test on JBoss
