@@ -7,8 +7,11 @@ A clean Java / Maven / Gradle / No- My- SQL / REST Project for rapidly testing s
 
 Create deployable .war  wtih 
 
-- Maven = `mvn clean install`<br>
-- Gradle = `gradle clean war`
+- Maven<br/>
+`mvn clean install`
+
+- Gradle<br/>
+`gradle clean war`
 
 copy the generated .war in /target or /build to your autodeploy directory to your running Application Server.
 
@@ -32,8 +35,10 @@ Be sure you have no Application Server running or you get the error port is in u
 
 Copy the settings.xml under _settings folder to your
 
-- Maven install: `$MAVEN2_HOME/conf/settings.xml`
-- User's install: `${user.home}/.m2/settings.xml`
+- Maven install<br/>
+`$MAVEN2_HOME/conf/settings.xml`
+- User's install<br/>
+`${user.home}/.m2/settings.xml`
 
 Go into the sandbox directory and run on command line
 
