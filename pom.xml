@@ -1,6 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<!-- =================== -->
+	<!-- Sandbox description -->
+	<!-- =================== -->
 	<groupId>de.devch.sandbox</groupId>
 	<artifactId>Sandbox</artifactId>
 	<packaging>war</packaging>
@@ -21,6 +25,10 @@
 		<url>https://github.com/retrostyle/sandbox</url>
 	</scm>
 	<name>Sandbox</name>
+
+	<!-- ============== -->
+	<!-- Build settings -->
+	<!-- ============== -->
 	<build>
 		<plugins>
 			<plugin>
@@ -45,6 +53,10 @@
 			</extension>
 		</extensions>
 	</build>
+
+	<!-- ======================== -->
+	<!-- Dependencies for Project -->
+	<!-- ======================== -->
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -63,6 +75,10 @@
 			<version>2.0</version>
 		</dependency>
 	</dependencies>
+
+
+	<!-- Artifact archiving with apache archiva -->
+	<!-- How to us it check README.MD -->
 	<distributionManagement>
 		<repository>
 			<id>internal</id>
@@ -73,4 +89,18 @@
 			<url>http://localhost:8080/repository/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
+
+	<!-- ============================== -->
+	<!-- Cobertura Code Coverage Plugin -->
+	<!-- Example: mvn clean install cobertura:cobertura -->
+	<!-- ============================================== -->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.5.2</version>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>

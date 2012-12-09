@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Christian Soth
+ * See the file license.txt for copying permission.
+ */
+
 package main.java.de.devch.sandbox.web;
 
 import java.io.IOException;

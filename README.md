@@ -1,24 +1,30 @@
 #Sandbox
 
-A clean Java / Maven / JDBC / SQL / REST Project for rapidly testing some cool stuff
+A clean Java / Maven / Gradle / No- My- SQL / REST Project for rapidly testing some cool stuff
 
 
 ##Getting started
 
-Deploy on Glassfish and now you can run the Servlet under:
-	_http://localhost:8080/sandbox/Servlet_
+Create deployable .war  wtih 
+
+Maven = `mvn clean package`<br>
+Gradle = `gradle clean war`
+
+copy the generated .war in /target or /build to your autodeploy directory to your running Application Server.
+
+Now you can run the Servlet under:
+
+`http://localhost:8080/sandbox/Servlet`
 
 or the JSP file under:
-	_http://localhost:8080/sandbox/_
 
+`http://localhost:8080/sandbox/`
 
-Create deployable .war  wtih 
-	_mvn clean package_
+that's it.
 
-now you can move the file under /target to your autodeploy folder.
+##Working with maven
 
-
-##Handle with Artifacts (Archiva & Maven)
+###Artifact handling with Archiva
 
 It is required to have archiva installed on your pc @ /localhost:8080
 
@@ -35,7 +41,7 @@ Go into the sandbox directory and run on command line
 
 
 
-##How to use cobertura code coverage
+###How to use cobertura code coverage
 
 To work with Cobertura CodeCoverage use one of these maven goals.
 
@@ -47,18 +53,13 @@ To work with Cobertura CodeCoverage use one of these maven goals.
 
 Example:
 
-```mvn clean package cobertura:cobertura```
+`mvn clean package cobertura:cobertura`
 
 
 ##Requirements
 
 Archiva with standard options (Snapshot and Internal repository)
 Insalled Maven 3.0.3
-
-##Tested on
-
-Glassfish 3.1.2
-Apache Tomcat / 7.0.33
 
 
 ##ToDo
@@ -70,17 +71,31 @@ Apache Tomcat / 7.0.33
 - Add REST
 - Test on JBoss
 
-##Gootchas
+##Gotchas
 
-If you have an 401 error on archive an artifact to your archiva repository be sure
+- If you have an 401 error on archive an artifact to your archiva repository be sure
 that you have copyed the settings.xml 
 
+- If you develop on your localhost and use archiva and a running Application Server be sure you have configured two different Ports. `:8080` & `:8181`
 
-##Testsystem
+
+##Test system
 
 All things are tested on:
-	Mac OS X 10.8.2
-	Procesor: 2.2 GHz Intel Core i7
-	Memory: 8GB 1333 MHz DDR3
-	GNU bash, version 3.2.48(1)-release (x86_64-apple-darwin12)
-	Build-Jdk: 1.7.0_07
+
+- Mac OS X 10.8.2
+- Procesor: 2.2 GHz Intel Core i7
+- Memory: 8GB 1333 MHz DDR3
+- GNU bash, version 3.2.48(1)-release (x86_64-apple-darwin12)
+- Build-Jdk: 1.7.0_07
+ 
+###Tested on
+
+- Glassfish 3.1.2
+- Apache Tomcat / 7.0.33
+	
+
+##License
+
+_Copyright (c) 2012 Christian Soth<br>
+See the file license.txt for copying permission._
