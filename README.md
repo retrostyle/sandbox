@@ -8,7 +8,10 @@ A clean Java / Maven / Gradle / No- My- SQL / REST Project for rapidly testing s
 Create deployable .war  wtih 
 
 - Maven<br/>
-`mvn clean install`
+`mvn clean package`<br/>
+package generates the war.<br>
+`mvn clean install` <br>
+install copied the .war to /.m2/repository/... and includes the goal package
 
 - Gradle<br/>
 `gradle clean war`
@@ -37,12 +40,13 @@ Copy the settings.xml under _settings folder to your
 
 - Maven install<br/>
 `$MAVEN2_HOME/conf/settings.xml`
+
 - User's install<br/>
 `${user.home}/.m2/settings.xml`
 
 Go into the sandbox directory and run on command line
 
-- `mvn clean install deploy`
+- `mvn clean package deploy`
 
 ###How to use cobertura code coverage
 
@@ -56,7 +60,7 @@ To work with Cobertura CodeCoverage use one of these maven goals.
 
 Example:
 
-- `mvn clean install cobertura:cobertura`
+- `mvn clean package cobertura:cobertura`
 
 The reports can be find under 
 
@@ -75,9 +79,11 @@ Insalled Maven 3.0.3
 - Add NoSQL
 - Add Gradle
 - Add REST
-- Test on JBoss
 
 ##Gotchas
+
+- By calling the URL for the Servlet and or JSP file 
+take care of case sensitivity.
 
 - If you have an 401 error on archive an artifact to your archiva repository be sure
 that you have copyed the settings.xml 
@@ -85,17 +91,17 @@ that you have copyed the settings.xml
 - If you develop on your localhost and use archiva and a running Application Server be sure you have configured two different Ports. `:8080` & `:8181`
 
 
-##Test system
+##Test systems
 
-All things are tested on:
+###Pc
 
 - Mac OS X 10.8.2
 - Procesor: 2.2 GHz Intel Core i7
 - Memory: 8GB 1333 MHz DDR3
 - GNU bash, version 3.2.48(1)-release (x86_64-apple-darwin12)
 - Build-Jdk: 1.7.0_07
- 
-###Tested on
+
+###Application Server
 
 - Glassfish 3.1.2
 - Apache Tomcat / 7.0.33
