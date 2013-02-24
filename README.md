@@ -121,7 +121,7 @@ that you have copyed the settings.xml
 - Apache Tomcat / 7.0.33
 	
 
-##License
+##MIT-License
 
 _Copyright (c) 2012 Christian Soth<br>
 See the file license.txt for copying permission._
