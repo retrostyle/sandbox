@@ -38,7 +38,7 @@ Be sure you have no Application Server running or you get the error port is in u
 
 Copy the settings.xml from the _settings folder in this prject to your
 
-#####Maven
+###Maven
 - Maven install<br/>
 `$MAVEN2_HOME/conf/settings.xml`
 
@@ -49,17 +49,7 @@ Go into the sandbox directory and run on command line
 
 - `mvn clean package deploy`
 
-#####Gradle
-To use the gradle build tool to the root directory of sandbox and run following command to build a jar.
-
-- `gradle jar `
-
-If you would like to upload the artifact to archiva use
-
-- `gradle jar upload`
-
-
-###How to use cobertura code coverage
+#####How to use cobertura code coverage
 
 To work with Cobertura CodeCoverage use one of these maven goals.
 
@@ -77,6 +67,27 @@ The reports can be find under
 
 - `target/site/cobertura/index.html`
 
+###Gradle
+To use the gradle build tool to the root directory of sandbox and run following command to build a jar.
+
+- `gradle jar `
+
+If you would like to upload the artifact to archiva use
+
+- `gradle jar upload`
+
+#####Gradle Cobertura Plugin
+
+- `gradle cobertura`
+
+Executes tests and generates a cobertura code coverage report in this directory
+
+- `build/reports/cobertura`
+
+For more information and settings for this task visit
+
+[https://github.com/valkolovos/gradle_cobertura/wiki](https://github.com/valkolovos/gradle_cobertura/wiki)
+
 
 ##Requirements
 
@@ -88,7 +99,6 @@ Insalled Maven 3.0.3
 
 - Add MySQL
 - Add NoSQL
-- Add Gradle
 - Add REST
 
 ##Gotchas

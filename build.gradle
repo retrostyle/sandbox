@@ -1,6 +1,6 @@
-<!-- =================== -->
-<!-- Sandbox description -->
-<!-- =================== -->
+// =================== -->
+// Sandbox description -->
+// =================== -->
 apply plugin: 'java'
 apply plugin: 'maven'
 
@@ -31,9 +31,9 @@ manifest.mainAttributes(
 [compileJava, compileTestJava]*.options.collect {options -> 
 options.encoding = 'UTF-8'}        
 
-<!-- =========================== -->
-<!-- Repositories & Dependencies -->
-<!-- =========================== -->
+// =========================== -->
+// Repositories & Dependencies -->
+// =========================== -->
 repositories {
 	mavenCentral()
 	maven { url "http://search.maven.org/";}
@@ -48,13 +48,13 @@ dependencies{
 	//"junit:junit:4.+"
     compile 'junit:junit:4.10',
 			'javax.servlet:javax.servlet-api:3.0.1',
-			'javax.servlet.jsp:jsp-api:2.0',
+			'javax.servlet.jsp:jsp-api:2.0'
 }
 
 
-<!-- =========================== -->
-<!-- Build & Project Properties  -->
-<!-- =========================== -->
+// =========================== -->
+// Build & Project Properties  -->
+// =========================== -->
 task welcome << {
 	println '#########################################'
 	println 'Build some coooool stuff with the sandbox'	
@@ -72,11 +72,16 @@ sourceSets {
         }
     }
 } 
-<!-- ================================================== -->
-<!-- This is the Configuration for the Archiva server	-->
-<!-- artifact server.									-->
-<!-- set the userName:"" and password:""				-->
-<!-- ================================================== -->
+
+buildscript {
+    apply from: 'https://github.com/valkolovos/gradle_cobertura/raw/master/repo/gradle_cobertura/gradle_cobertura/1.0/coberturainit.gradle'
+}
+
+// ================================================== -->
+// This is the Configuration for the Archiva server	-->
+// artifact server.									-->
+// set the userName:"" and password:""				-->
+// ================================================== -->
 configurations {
     deployerJars
 }
