@@ -1,39 +1,102 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>de.devch.sandbox</groupId>
-  <artifactId>Sandbox</artifactId>
-  <packaging>war</packaging>
-  <version>0.1-SNAPSHOT</version>
-  <name>Sandbox</name>
-  <url>http://www.devch.de</url>
-  <build>
-       <plugins>
-           <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-war-plugin</artifactId>
-               <configuration>
-                   <webXml>WebContent\WEB-INF\web.xml</webXml>
-               </configuration>
-           </plugin>
-       </plugins>
-  </build>
-  <dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.10</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
-		</dependency>
-	    <dependency>
-	        <groupId>javax.servlet.jsp</groupId>
-	        <artifactId>jsp-api</artifactId>
-	        <version>2.0</version>
-        </dependency>
-  </dependencies>	
-</project>
+<!-- =================== -->
+<!-- Sandbox description -->
+<!-- =================== -->
+apply plugin: 'java'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.6  
+targetCompatibility = 1.6  
+
+//for use of variables be sure you use "" instead of '' ! 
+//call variables with $revision
+def revision = new java.text.SimpleDateFormat("yyyyMMdd.HHmmss").format(new java.util.Date()).toString()
+
+jar.baseName = 'sandbox'
+
+//With the RELEASE or SNAPSHOT attribut you can set the repo in archiva
+//version = '0.1-RELEASE'	
+//version = '0.1-SNAPSHOT'
+version = "0.1-$revision"
+group = 'de.devch.sandbox'
+packaging = 'war'
+
+manifest.mainAttributes(
+        "Built-By": System.getProperty("user.name"),
+        "Implementation-Title": jar.baseName,
+        "Implementation-Version": version,
+        "Implementation-Vendor": group,
+		"Compile-Time": new java.text.SimpleDateFormat("yyyy-MM-dd_HH-mm").format(new java.util.Date()).toString()
+		)
+       
+[compileJava, compileTestJava]*.options.collect {options -> 
+options.encoding = 'UTF-8'}        
+
+<!-- =========================== -->
+<!-- Repositories & Dependencies -->
+<!-- =========================== -->
+repositories {
+	mavenCentral()
+	maven { url "http://search.maven.org/";}
+  // maven { url "http://localhost:8080/repository/internal";}
+  // maven { url "http://localhost:8080/repository/snapshots";}
+}
+
+dependencies{  
+
+	//Dependencie u can use "" instead of ''
+	//with "" and a + in the version u use all versions above
+	//"junit:junit:4.+"
+    compile 'junit:junit:4.10',
+			'javax.servlet:javax.servlet-api:3.0.1',
+			'javax.servlet.jsp:jsp-api:2.0',
+}
+
+
+<!-- =========================== -->
+<!-- Build & Project Properties  -->
+<!-- =========================== -->
+task welcome << {
+	println '#########################################'
+	println 'Build some coooool stuff with the sandbox'	
+	println '#########################################'
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/'
+        }
+        resources {
+            srcDir 'src/'
+        }
+    }
+} 
+<!-- ================================================== -->
+<!-- This is the Configuration for the Archiva server	-->
+<!-- artifact server.									-->
+<!-- set the userName:"" and password:""				-->
+<!-- ================================================== -->
+configurations {
+    deployerJars
+}
+
+dependencies {
+    deployerJars "org.apache.maven.wagon:wagon-http:1.0-beta-2"
+}
+
+uploadArchives {
+  uploadDescriptor = false
+  repositories {
+    deployer = mavenDeployer {
+      uniqueVersion = false
+      configureAuth = {
+		  //Please set this credentials
+        authentication(userName: 'user', password: 'password')
+      }
+      configuration = configurations.deployerJars
+      snapshotRepository(url: "http://localhost:8080/repository/snapshots/", configureAuth)
+      repository(url: "http://localhost:8080/repository/release/", configureAuth)
+    }
+  }
+}

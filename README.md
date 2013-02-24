@@ -16,7 +16,7 @@ install copied the .war to /.m2/repository/... and includes the goal package
 - Gradle<br/>
 `gradle clean war`
 
-copy the generated .war in /target or /build to your autodeploy directory to your running Application Server.
+copy your generated .war from /target or /build into your autodeploy directory from the running Application Server.
 
 Now you can run the Servlet under:
 
@@ -28,7 +28,7 @@ or the JSP file under:
 
 that's it.
 
-##Working with maven
+##Working with a build automation tool
 
 ###Artifact handling with Archiva
 
@@ -36,8 +36,9 @@ It is required to have archiva installed on your pc standard is /localhost:8080
 
 Be sure you have no Application Server running or you get the error port is in use.
 
-Copy the settings.xml under _settings folder to your
+Copy the settings.xml from the _settings folder in this prject to your
 
+#####Maven
 - Maven install<br/>
 `$MAVEN2_HOME/conf/settings.xml`
 
@@ -47,6 +48,16 @@ Copy the settings.xml under _settings folder to your
 Go into the sandbox directory and run on command line
 
 - `mvn clean package deploy`
+
+#####Gradle
+To use the gradle build tool to the root directory of sandbox and run following command to build a jar.
+
+- `gradle jar `
+
+If you would like to upload the artifact to archiva use
+
+- `gradle jar upload`
+
 
 ###How to use cobertura code coverage
 
@@ -93,13 +104,6 @@ that you have copyed the settings.xml
 
 ##Test systems
 
-###Pc
-
-- Mac OS X 10.8.2
-- Procesor: 2.2 GHz Intel Core i7
-- Memory: 8GB 1333 MHz DDR3
-- GNU bash, version 3.2.48(1)-release (x86_64-apple-darwin12)
-- Build-Jdk: 1.7.0_07
 
 ###Application Server
 
