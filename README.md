@@ -97,7 +97,8 @@ Insalled Maven 3.0.3
 
 ##ToDo
 
-- Add MySQL
+- Add MySQL Description
+- Add Stateless & Statefull EJB
 - Add NoSQL
 - Add REST
 
