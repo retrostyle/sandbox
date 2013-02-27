@@ -88,6 +88,25 @@ For more information and settings for this task visit
 
 [https://github.com/valkolovos/gradle_cobertura/wiki](https://github.com/valkolovos/gradle_cobertura/wiki)
 
+#####Gradle Checkstyle Plugin
+
+The checkstyle plugin run the configured checkstyle.xml modules in
+
+- `config/checkstylecheckstyle.xml`
+
+To run the checkstyle analysis run following command.
+
+- `gradle check`
+
+
+For more cool checkstyles visite
+
+[available checks](http://checkstyle.sourceforge.net/availablechecks.html)
+
+PropertyTypes
+
+[property types](http://checkstyle.sourceforge.net/property_types.html)
+
 
 ##Requirements
 
