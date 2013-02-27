@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2012 Christian Soth
- * See the file license.txt for copying permission.
- */
-
 package main.java.de.devch.sandbox.init;
 
 import java.sql.Statement;
@@ -13,28 +8,37 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+/**
+ * The Class SandboxDatabaseCreateFromScratch.
+ */
 public class SandboxDatabaseCreateFromScratch {
 
-	int i = 5;
-	int x = 10;
+	/** The i. */
+	private final int i = 5;
+
+	/** The x. */
+	private final int x = 10;
 
 	/**
-	 * @param args
+	 * The main method.
+	 * 
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 
-		String driver = "com.mysql.jdbc.Driver";
+		final String driver = "com.mysql.jdbc.Driver";
 
-		String jdbcMsql = "jdbc:mysql://";
-		String server = "localhost";
-		String port = ":3306/";
+		final String jdbcMsql = "jdbc:mysql://";
+		final String server = "localhost";
+		final String port = ":3306/";
 
-		String userName = "root";
-		String password = "test";
+		final String userName = "root";
+		final String password = "test";
 
-		String dbName = "sandbox";
+		final String dbName = "sandbox";
 
-		String jpaSource = "sandbox";
+		final String jpaSource = "sandbox";
+
 		try {
 			Class.forName(driver).newInstance();
 			Connection sqlConnection = DriverManager.getConnection(jdbcMsql + server + port, userName, password);
@@ -58,6 +62,11 @@ public class SandboxDatabaseCreateFromScratch {
 		em.getTransaction().commit();
 	}
 
+	/**
+	 * Drive.
+	 * 
+	 * @return the int
+	 */
 	public int drive() {
 		int result = i + x;
 		return result;

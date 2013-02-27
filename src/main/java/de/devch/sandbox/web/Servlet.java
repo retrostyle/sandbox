@@ -16,12 +16,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Servlet
+ * Servlet implementation class Servlet.
  */
 @WebServlet("/Servlet")
 public class Servlet extends HttpServlet {
+
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/*
+	 * (non-Javadoc)
+	 * @see
+	 * javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest
+	 * , javax.servlet.http.HttpServletResponse)
+	 */
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
 		res.setContentType("text/html");
@@ -37,6 +45,10 @@ public class Servlet extends HttpServlet {
 		out.println("</BODY></HTML>");
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see javax.servlet.GenericServlet#getServletInfo()
+	 */
 	public String getServletInfo() {
 		return "A servlet that knows the name of the person to whom it's" + "saying hello";
 	}

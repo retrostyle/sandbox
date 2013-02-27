@@ -4,7 +4,7 @@
  */
 package test.java.de.devch.sandbox;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import main.java.de.devch.sandbox.init.SandboxDatabaseCreateFromScratch;
 
